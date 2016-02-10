@@ -6,14 +6,21 @@
 		<div class="date"></div>
 		<h2>headers</h2>
 		Cache-Control 		
-		<select name="cache-control" id="cache-control">
-			<option value="no-store">no-store *</option>
-			<option value="no-cache">no-cache</option>
+		<select name="Cache-Control" id="Cache-Control">
+			<option value="">-select-</option>
+			<option value="no-store">no-store</option>
+		</select>
+		<br>
+		Test-Header 		
+		<select name="Test-Header" id="Test-Header">
+			<option value="">-select-</option>
+			<option value="bad-server">bad-server</option>
+			<option value="teapot">teapot</option>
 		</select>
 		<br>
 
 
-		<input type="text" value="something"><br>
+		Dummy<input type="text" value="something"><br>
 		<input type="text" value="something"><br>
 		<input type="text" value="something"><br>
 		<button onclick=launchPlain()>Send request</button>

@@ -6,8 +6,9 @@ function launchPlain() {
 		console.log(some, thing)
 	};
 
-	var beforeSend =  function(xhr) {
+	var beforeSend = function(xhr) {
 		xhr.setRequestHeader('Cache-Control', document.querySelector('#cache-control').value);
+		xhr.setRequestHeader('Test-Header', document.querySelector('#test-header').value);
 	};
 
 	$.ajax({

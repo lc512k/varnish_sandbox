@@ -4,11 +4,28 @@
 	</head>
 	<body>
 		<div class="date"></div>
-		<h2>headers</h2>
+		<h2>Request Headers</h2>
+		Expires 		
+		<input type="text" value="2017/01/01" id="Expires">
+		<br>
 		Cache-Control 		
 		<select name="Cache-Control" id="Cache-Control">
 			<option value="">-select-</option>
 			<option value="no-store">no-store</option>
+			<option value="public">public</option>
+			<option value="private">private</option>
+			<option value="must-revalidate">must-revalidate</option>
+			<option value="proxy-revalidate">proxy-revalidate</option>
+			<option value="no-transform">no-transform</option>
+
+<!-- 			
+use checkboxes instead of select
+max-age=0
+s-maxage=0
+-->
+
+
+
 		</select>
 		<br>
 		Test-Header 		
@@ -18,12 +35,21 @@
 			<option value="teapot">teapot</option>
 		</select>
 		<br>
-
-
-		Dummy<input type="text" value="something"><br>
-		<input type="text" value="something"><br>
-		<input type="text" value="something"><br>
+		Etag 		
+		<input type="text" value="unique id set by srv" id="Etag">
+		<br>
+		Last-Modified 		
+		<input type="text" value="2015/01/01" id="Last-Modified">
+		<br>		
+		Content-Length 		
+		<input type="text" value="0" id="Content-Length">
+		<br>
+		Vary 		
+		<input type="text" value="Test-Header" id="Vary">
+		<br>
 		<button onclick=launchPlain()>Send request</button>
+
+		<a href="https://www.digitalocean.com/community/tutorials/web-caching-basics-terminology-http-headers-and-caching-strategies">more</a>
 		<script src="client.js"></script>
 	</body>
 </html>

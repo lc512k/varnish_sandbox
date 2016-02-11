@@ -1,3 +1,5 @@
+// sudo varnishd -a 127.0.0.1:9091 -f ~/sandobx/varnish_sandbox/default.vcl -s file,/tmp,500M
+
 var express = require('express');
 var app = express();
 

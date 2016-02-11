@@ -1,55 +1,117 @@
 <html>
 	<head>
 	<script src="https://code.jquery.com/jquery-git2.min.js"></script>
+	<style>
+
+		.date {
+			float: right;
+			color: blue;
+		}
+		.request,
+		.response {
+			float: left;
+			width: 50%;
+			border: 1px solid black;
+			box-sizing: border-box;
+			padding: 15px;
+		}
+	</style>
 	</head>
 	<body>
+
+		<div class="request">
+			<h1>Request</h1>
+			<h2>Headers</h2>
+
+			<fieldset>
+				<legend>Cache-Control</legend>
+
+				<input type="radio" name="no-cache-option-storing" value="no-store" id="no-store">
+				<label for="no-store">no-store</label>
+				
+				<input type="radio" name="no-cache-option-storing" value="no-cache" id="no-cache">
+				<label for="no-cache">no-cache</label><br>
+				
+				<input type="checkbox" name="no-cache-option" value="must-revalidate" id="must-revalidate">
+				<label for="must-revalidate">must-revalidate</label><br>
+				
+				<input type="checkbox" name="no-cache-option" value="proxy-revalidate" id="proxy-revalidate">
+				<label for="proxy-revalidate">proxy-revalidate</label><br>
+				
+				<input type="checkbox" name="no-cache-option" value="no-transform" id="no-transform">
+				<label for="no-transform">no-transform</label><br>
+				
+				<input type="radio" name="no-cache-option-privacy" value="public" id="public">
+				<label for="public">public</label>
+				
+				<input type="radio" name="no-cache-option-privacy" value="private" id="private">
+				<label for="private">private</label><br>
+				
+				<input type="checkbox" name="no-cache-option" value="max-age" id="max-age">
+				<label for="max-age">max-age</label>
+				<input type="number" id="max-age-value"><br>
+
+				<input type="checkbox" name="no-cache-option" value="s-maxage">
+				<label for="s-maxage">s-maxage</label>
+				<input type="number" id="s-maxage-value"><br>
+
+				Cache-Control: <input type="text" id="Cache-Control"><br>	
+			</fieldset>
+			<br>
+
+			<fieldset>
+				<legend>Other</legend>
+				<label for="">Expires</label>
+				<input type="text" value="2017/01/01" id="Expires">
+				
+				<br>
+				
+				<label for="">Test-Header</label>
+				<select name="Test-Header" id="Test-Header">
+					<option value="">-select-</option>
+					<option value="bad-server">bad-server</option>
+					<option value="teapot">teapot</option>
+				</select>
+				
+				<br>
+				
+				<label for="">Etag</label>
+				<input type="text" value="unique id set by srv" id="Etag">
+				
+				<br>
+				
+				<label for="">Last-Modified</label>
+				<input type="text" value="2015/01/01" id="Last-Modified">
+				
+				<br>		
+				
+				<label for="">Content-Length</label>
+				<input type="text" value="0" id="Content-Length">
+				
+				<br>
+				
+				<label for="">Vary</label>
+				<input type="text" value="Test-Header" id="Vary">
+				
+			</fieldset>
+			<br>
+			
+			<button onclick=launchPlain()>Send request</button>
+
+			<a href="https://www.digitalocean.com/community/tutorials/web-caching-basics-terminology-http-headers-and-caching-strategies">more</a>
+		</div>
+		
+		<div class="response">
+			<h1>Response</h1>
+			<h2>Headers</h2>
+			<div id="response-headers"></div>
+			<h2>Body</h2>
+			<div id="response-body"></div>
+		</div>
+
+
 		<div class="date"></div>
-		<h2>Request Headers</h2>
-		Expires 		
-		<input type="text" value="2017/01/01" id="Expires">
-		<br>
-		Cache-Control 		
-		<select name="Cache-Control" id="Cache-Control">
-			<option value="">-select-</option>
-			<option value="no-store">no-store</option>
-			<option value="public">public</option>
-			<option value="private">private</option>
-			<option value="must-revalidate">must-revalidate</option>
-			<option value="proxy-revalidate">proxy-revalidate</option>
-			<option value="no-transform">no-transform</option>
 
-<!-- 			
-use checkboxes instead of select
-max-age=0
-s-maxage=0
--->
-
-
-
-		</select>
-		<br>
-		Test-Header 		
-		<select name="Test-Header" id="Test-Header">
-			<option value="">-select-</option>
-			<option value="bad-server">bad-server</option>
-			<option value="teapot">teapot</option>
-		</select>
-		<br>
-		Etag 		
-		<input type="text" value="unique id set by srv" id="Etag">
-		<br>
-		Last-Modified 		
-		<input type="text" value="2015/01/01" id="Last-Modified">
-		<br>		
-		Content-Length 		
-		<input type="text" value="0" id="Content-Length">
-		<br>
-		Vary 		
-		<input type="text" value="Test-Header" id="Vary">
-		<br>
-		<button onclick=launchPlain()>Send request</button>
-
-		<a href="https://www.digitalocean.com/community/tutorials/web-caching-basics-terminology-http-headers-and-caching-strategies">more</a>
 		<script src="client.js"></script>
 	</body>
 </html>
